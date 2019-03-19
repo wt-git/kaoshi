@@ -1,0 +1,46 @@
+
+// 定义线 -放于伪类中
+.define_line(@color:'',@width:'',@height:1){
+    content: '';
+    .w(@width);
+    .h(@height);
+    .bg(@color);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+// ----- 定义箭头,实心+双边空心+横线箭头 ----- 
+.define_arrow1(@width:''){
+    .w(0);
+    .h(0);
+    border:@px*@width solid transparent;
+    display: inline-block;
+}
+.define_arrow2(@color:'',@num:'',@width:''){
+    .w(@num);
+    .h(@num);
+    display: inline-block;
+    .bor(@color);
+    border-width: @px*@width  0 0 @px*@width;
+}
+.define_arrow3(@color:'',@num:'',@width:''){
+    position: relative;
+    &:before{
+        content: '';
+        position: absolute;
+        display:block;
+        .bg(@color);
+        .w(@width);
+        .h(@num*2);
+        .t(@width);
+        .l(@num/2 + @num/5 - @width/2);
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        .t(@num/5);
+        .l(@num/5);
+        .define_arrow2(@color,@num,@width);
+        .prefix(transform,rotate(45deg));
+    }
+}

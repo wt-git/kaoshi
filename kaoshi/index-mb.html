@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta content="telephone=no" name="format-detection">
+    <link rel="stylesheet" href="css/common/common.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/common/count.js"></script>
+
+
+    <title> </title>
+</head>
+
+<body>
+    <section class="index-box">
+        <div class="ix-top">
+            <img src="img/index-bg.jpg" alt="">
+            <div class="explain"></div>
+        </div>
+
+        <div class="ix-imgs">
+            <div>
+                <a href="">
+                    <img src="img/ix-img1.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="img/ix-img2.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="">
+                    <img src="img/ix-img3.png" alt="">
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 弹框-说明 -->
+    <div class="model">
+        <div class="content">
+
+            <h1>考试说明</h1>
+
+            <p>确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统 ？确认退出考试系统？确认退出考试系统？确认退出考试系统？</p>
+            <p>确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统 ？确认退出考试系统？确认退出考试系统？确认退出考试系统？</p>
+            <p>确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统 ？确认退出考试系统？确认退出考试系统？确认退出考试系统？</p>
+            <p>确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统 ？确认退出考试系统？确认退出考试系统？确认退出考试系统？</p>
+            <p>确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统？确认退出考试系统 ？确认退出考试系统？确认退出考试系统？确认退出考试系统？</p>
+
+
+
+        </div>
+    </div>
+
+    <script src="js/framework/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var $model = $(".model");
+            $(".explain").click(function () {
+                $(".model").addClass("model-show");
+            })
+            $model.click(function (e) {
+                var drag = $(".content"),
+                    dragel = $(".content")[0],
+                    target = e.target;
+                if (dragel !== target && !$.contains(dragel, target)) {
+                    $(".model").removeClass("model-show");
+                }
+            });
+        })
+    </script>
+
+
+
+</body>
+
+</html>

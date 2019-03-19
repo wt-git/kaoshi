@@ -1,0 +1,28 @@
+@min768: ~"(min-width: 768px)";
+@min1000: ~"(min-width: 1000px)";
+@max768: ~"(max-width: 768px)";
+@max1000: ~"(max-width: 1000px)";
+
+/*设备竖屏时的样式*/  
+@shu: ~"(orientation : portrait)";
+/*设备横屏时的样式*/  
+@heng: ~"(orientation : landscape)";
+
+
+
+/*
+编译前
+.example {
+    @media @min768 {
+      font-size: 1.2rem;
+    }
+  }
+
+编译后
+@media (min-width: 768px) {
+  .example {
+    font-size: 1.2rem;
+  }
+}
+
+*/

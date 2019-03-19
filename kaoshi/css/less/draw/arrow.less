@@ -1,0 +1,40 @@
+// -----箭头,上右下左,如果放在伪类中记得加content-----
+// 实心，如果是加箭头容器，把margin设置负值并且绝对值等于@width
+.a1_t(@color:'',@width:''){
+    .define_arrow1(@width);
+    border-bottom-color:@color;
+    border-top-width:0;
+}
+.a1_r(@color:'',@width:''){
+    .define_arrow1(@width);
+    border-left-color:@color;
+    border-right-width:0;
+}
+.a1_b(@color:'',@width:''){
+    .define_arrow1(@width);
+    border-top-color:@color;
+    border-bottom-width:0;
+}
+.a1_l(@color:'',@width:''){
+    .define_arrow1(@width);
+    border-right-color:@color;
+    border-left-width:0;
+}
+
+// 两边，num控制大小，width控制粗细
+.a2_t(@color:'',@num:'',@width:1){
+    .define_arrow2(@color,@num,@width);
+    .prefix(transform,rotate(45deg));
+}
+.a2_r(@color:'',@num:'',@width:1){
+    .define_arrow2(@color,@num,@width);
+    .prefix(transform,rotate(135deg));
+}
+.a2_b(@color:'',@num:'',@width:1){
+    .define_arrow2(@color,@num,@width);
+    .prefix(transform,rotate(225deg));
+}
+.a2_l(@color:'',@num:'',@width:1){
+    .define_arrow2(@color,@num,@width);
+    .prefix(transform,rotate(315deg));
+}

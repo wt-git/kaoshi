@@ -1,0 +1,17 @@
+//循环-图标 
+.i-loop(@src,@n, @i:1) when (@i <= @n) {
+    //自定义样式名
+    .i@{i} {
+        background-image: url("../img/@{src}@{i}.png");
+        background-repeat:  no-repeat;
+    }
+    .i-loop(@src,@n, (@i + 1));
+}
+//图片自适应并居中
+.img-res(){
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}

@@ -1,0 +1,24 @@
+//背景渐变,从上到下or从左到右
+.gradient(t,@start:red,@end:blue){
+    // background-color: @start;
+    background-image: -webkit-linear-gradient(@start, @end);
+    background-image: linear-gradient(@start, @end);
+}
+.gradient(l,@start:red,@end:blue){
+    // background-color: @start;
+    background-image: -webkit-linear-gradient(left,@start, @end);
+    background-image: linear-gradient(to right,@start, @end);
+}
+.gradient(@deg:45deg,@start:red,@end:blue){
+    // background-color: @start;
+    background-image: -webkit-linear-gradient(@deg, @start, @end);
+    background-image: linear-gradient(@deg, @start, @end);
+}
+//阴影,全阴影or下阴影
+.shadow(@color:@3){
+    box-shadow: 1px 1px 1px @color, 0 0 5px @color, 0 0 10px @color;
+}
+.shadow(b,@color:@3){
+    box-shadow: 0 1px 1px @color, 0 2px 2px @color, 0 5px 5px @color;
+}
+

@@ -1,0 +1,495 @@
+@import 'less/less';
+//特殊符号对齐
+.indent{
+    text-indent:-0.5em;
+}
+.paper-list-box,.paper-result-box{
+    .gradient(t,@grt,@grb);
+    .icon-tag1{
+        .fc(@f,.5rem);
+    }
+    .icon-zhuye{
+        .fc(@f,.5rem);
+    }
+}
+//头部固定
+.paper-top-nav{
+
+    .pd(10,15);
+    .w(100%);
+    .h(62);
+   .lh(42);
+    position: fixed;
+    .t(0);
+    z-index: 5;
+    .bg(@c11);
+    box-shadow: 0 1px 10px @c12;
+    &+div{
+        .mt(44+25);
+    }
+    .m{
+        .fc(@f,.35rem);
+        text-align: center;
+    }
+    .l{
+        position: absolute;
+        .l(8);
+        .t(10);
+    }
+    .r{
+        position: absolute;
+        .r(8);
+        .t(10); 
+    }
+    @media (min-width:768px) {
+        .pd(20,30);
+        .h(100);
+        .lh(88);
+        & .l{
+            .l(16);
+            .t(20);
+        }
+        & .r{
+            .r(16);
+            .t(20);
+        }
+    }
+ 
+  
+}
+//侧滑
+body,html{
+    .w(100%);
+    // .h(100%);
+    .gradient(t,@grt,@grb);
+}
+
+
+.swiper-slide{
+    background: transparent;
+  
+}
+.paper-top-nav{
+
+    // &+.study{
+    //     @h:62+50; 
+    //     .pt(0);
+    // }
+   
+  
+}
+.study{
+    .pd(0,35);
+    .pt(.5rem);
+    .pb(1.2rem);
+}
+
+// 列表内容
+.paper-list-content{
+    .pd(25,25);
+    a{
+        .bg("paper-tool.png");
+        .h(1.2rem);
+        .mb(15);
+        .fc(@cr1,.34rem);
+        text-align: center;
+        .lh(1.0rem);
+    }
+}
+// -----------------------------
+// 试卷内容页
+.paper-content{
+    min-height: calc(~"100vh - 102px");
+    .icon-shangchuan{
+        .fc(@f,.4rem); 
+        .ml(5);
+    }
+    .icon-mulu{
+        .fc(@f,.6rem); 
+    }
+}
+
+.line(){
+    border-bottom: @cr6 solid 1px;
+}
+//试卷标题
+.paper-title{
+    h1{
+        .fc(@f,.36rem);
+    }
+    .line();
+    .pb(25);
+}
+//答案的选择
+.question{
+    .pt(25);
+    .line();
+    label{
+        display: block;
+        .mb(25);
+        overflow: hidden;
+    }
+    [type="radio"],[type="checkbox"]{
+        display: none;
+        &:checked+div>i{
+            .bg(@f);
+            .fc(@cr7);
+        }
+    }
+    i{
+        .rad(50%);
+        .bor(@f);
+        .w(.48rem);
+        .h(.48rem);
+        .lh(.4rem);
+        text-align: center;
+        display: block;
+        .fc(@f,.34rem);
+        .mr(15);
+      
+    }
+    div{
+        float: left;
+        width: 15%;
+        .mt(2);
+    }
+    span{
+        float: left;
+        width:85%;
+        display:block;
+        .fc(@f,.30rem);
+        .mt(1);
+        text-align: left;
+    }
+    textarea{
+        background: transparent;
+        .w(100%);
+        .h(3.8rem);
+        .mb(25);
+        .fc(.3rem,@f);
+        .bor(@c8);
+        .rad(5);
+        .pd(10);
+        .placeholder(@c8);
+    }
+} 
+.pages{
+    .fc(@f,.3rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .mt(15);
+    a{
+        .fc(@f);
+    }
+    .l,.r{
+        .pd(8,18);
+        .bor(@f);
+        .rad(33);
+       
+    }
+    .l.not-page,.r.not-page{
+        .bor(@c8);
+        a{
+         .fc(@c8);
+
+        }
+    }
+}
+.peg{
+
+    .mt(30);
+    overflow: hidden;
+    label{
+        // width: 100%;
+        display: block;
+        float: right;
+        &>div{
+        
+            .fc(@c8);
+            float: left;
+           
+        }
+    }
+
+    span{
+        .fc(@c8,.3rem);
+        .ml(8);
+    }
+    [type=checkbox]{
+        display: none;
+        &:checked{
+            &+div{
+                .fc(@c9);
+            }
+            &+div+span{
+                .fc(@c9);
+            }
+        }
+    }
+    .icon-shoucang{
+        .fc(0.32rem);
+    }
+}
+//底部固定导航
+.nav-btm{
+    .bg(@c10);
+    .w(100%);
+    .h(1rem);
+    position: fixed;
+    .b(0);
+    .l(0);
+    z-index:5;
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+    .pd(0,15);
+    &>div{
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        &>div{
+            float: left;
+        }
+    }
+}
+.nav-l{
+
+    div{
+ 
+
+        &:first-child{
+            &>i{
+                .fc(@f,.4rem);
+            }
+        }
+        &:last-child{
+            .ml(4);
+            .fc(@f,.3rem);
+            .l{
+                .fc(@f,.3rem);
+            }
+            .r{
+                .fc(@c8,.3rem);
+            }
+        }
+        
+    }
+}
+.nav-m{
+
+    .fc(@c8,.3rem);
+    div{
+
+        &:first-child{
+            &>i{
+                .fc(.4rem);
+            }
+        }
+        &:last-child{
+            .ml(6);
+            // .fc(@c8,.3rem);
+  
+        }
+        
+    }
+}
+.nav-r{
+    .fc(@c9,.3rem);
+    div{
+ 
+        &:first-child{
+            &>i{
+                .fc(.5rem);
+            }
+        }
+        &:last-child{
+            .ml(3);
+         
+        }
+        
+    }
+}
+//弹框-试卷目录
+.catalog{
+    position: fixed;
+    z-index:120;
+    .t(0);
+    // .l(0);
+    .r(-100%);
+    .w(100vw);
+     .h(100vh);   
+     .bg(@op_0);
+    
+    .pl(20%);
+    // display: none;
+    
+}
+.catalog-show{
+    display: block;
+}
+.catalog-content{
+    .w(100%);
+    .h(100vh);  
+    .bg(@f);
+    overflow-y: scroll;
+    .pd(0,15);
+    &>div{
+        .pb(15);
+    }
+    h1{
+        text-align: center;
+        .fc(@4,.36rem);
+        .pd(.44rem,0);
+    }
+    .title{
+        .fc(@4,.3rem);
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        .mb(10);
+        &:before{
+            content: '';
+            display: inline-block;
+            .bg(@c13);
+            .w(4);
+            .h(17);
+            .mr(11);
+        }
+    }
+    .item{
+        .items(6,.7rem,3%);
+        .lh(.7rem);
+        text-align: center;
+       div{
+            .bor(@3,@e);
+            .rad(5);
+            .bg(@e);
+       }
+        .blue{
+            .bg(@c13);
+            a{
+
+                .fc(@f);
+            }
+        }
+        .orange{
+            .bg(@c14);
+            a{
+
+                .fc(@f);
+            }
+        }
+    }
+    a{
+    .fc(.28rem,@9);
+     
+        display: block;
+    }
+   
+}
+.model{
+    display:flex;
+}
+//成绩单
+.paper-result-box{
+   overflow: hidden;
+   .paper-result-content{
+        .mt(100);
+        @media (min-width:768px) {
+            .mt(130);
+        }
+   }
+ 
+}
+.paper-result-content{
+    .bg(@f);
+    .rad(10);
+    .ml(.5rem);
+    .mr(.5rem);
+    .mb(50);
+    .pd(.7rem);
+    @media (min-width:768px) {
+        .mt(200);
+        .mb(50);
+    }
+    h4{
+        .fc(.3rem,@6);
+        text-align: center;
+        position: relative;
+        .mb(1rem);
+        &:before,&:after{
+            content: '';
+            position: absolute;
+            display: block;
+            .t(6);
+           
+            .bg("res-line.png");
+            .w(1.44rem);
+            .h(.21rem);
+        }
+        &:before{
+            .l(0);
+        }
+        &:after{
+            .r(0);
+        }
+    }
+    .content{
+        // .items(2,1.8rem,0);
+        overflow: hidden;
+        text-align: center;
+        &>div{
+            .bg("res-img1.png");
+            // .pd(60);
+            // float: left;
+            .w(2.2rem);
+            .h(1.8rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .mb(.4rem);
+            &:nth-child(2n){
+                float: right;
+            }
+            &:nth-child(2n+1){
+                float: left;
+            }
+            div{
+                .fc(.28rem);
+            }
+        }
+    }
+    h3{
+        .fc(.8rem);
+    }
+    .cn1{
+        .fc(@c15);
+    }
+    .cn2{
+        .fc(@c16);
+    }
+    .cn3{
+        .fc(@6);
+    }
+    .btn{
+        a{
+            display: block;
+            .w(100%);
+            .h(.86rem);
+            .lh(.86rem);
+            text-align: center;
+            .fc(.36rem);
+            .mt(.5rem);
+            .rad(44);
+            &:first-child{
+                .fc(@c14);
+                .bor(@c14);
+            }
+            &:last-child{
+                .fc(@c13);
+                .bor(@c13);
+            }
+        }
+    }
+}

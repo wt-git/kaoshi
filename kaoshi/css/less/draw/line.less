@@ -1,0 +1,42 @@
+// -----线条,上右下左,默认外间距10-----
+.line_t(@color:'',@width:'',@margin:10){
+    &:before{
+        .define_line(@color,@width,@height:1);
+        .mb(@margin);
+    }
+}
+.line_r(@color:'',@width:'',@margin:10){
+    &:after{
+        .define_line(@color,@width,@height:1);
+        .ml(@margin);
+    }
+}
+.line_b(@color:'',@width:'',@margin:10){
+    &:after{
+        .define_line(@color,@width,@height:1);
+        .mt(@margin);
+    }
+}
+.line_l(@color:'',@width:'',@margin:10){
+    &:before{
+        .define_line(@color,@width,@height:1);
+        .mr(@margin);
+    }
+} 
+
+// 横线，本身已定义在伪类中，不能再放入伪类里
+.a3_t(@color:'',@num:'',@width:1){
+    .define_arrow3(@color,@num,@width);
+}
+.a3_r(@color:'',@num:'',@width:1){
+    .prefix(transform,rotate(90deg));
+    .define_arrow3(@color,@num,@width);
+}
+.a3_b(@color:'',@num:'',@width:1){
+    .prefix(transform,rotate(180deg));
+    .define_arrow3(@color,@num,@width);
+}
+.a3_l(@color:'',@num:'',@width:1){
+    .prefix(transform,rotate(270deg));
+    .define_arrow3(@color,@num,@width);
+}

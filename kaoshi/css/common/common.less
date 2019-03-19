@@ -1,0 +1,115 @@
+
+body{
+    // font-family: "Microsoft YaHei";
+}
+p{
+    text-align:justify;
+    word-wrap:break-word;
+}
+.hide{
+    display:none
+}
+.block{
+    display:block
+}
+.clear:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+i{
+    font-style: normal;
+}
+
+
+// --------------------------------
+// 引入less
+
+// @import "font";
+// @import 'sprite';
+@import 'reset';
+@import 'font/iconfont';
+// -----------------------------------
+section{
+    .w(100%);
+    min-height: 100vh;
+}
+img{
+    .img-res();
+}
+.logo{
+    .pd(0,50);
+}
+//弹框
+.model{
+  
+    position: fixed;
+    z-index:100;
+    .t(0);
+    .r(0);
+     .w(100vw);
+     .h(100vh);   
+     .bg(@op_0);
+     .pd(0,50);
+
+     display: none;
+     align-items: center;
+    //  justify-content: center;
+     .content{
+         .rad(5);
+         .bg(@f);
+         .w(100%); 
+         .h(3rem);
+         .pd(23);
+         display:flex;
+         flex-direction: column;
+         justify-content: space-between;
+     }
+     .title{
+         display:flex;
+        //  align-items:center;
+        //  @media (max-width:320px) {
+        //     align-items:stretch;
+        //  }
+        //  @media (min-width:768px) {
+        //     align-items:stretch;
+        //  }
+        .w(100%);
+         i{
+             .fc(@3,.4rem);
+            .mr(5);
+         }
+         span{
+            .fc(@3,.3rem);
+         }
+         
+     } 
+     .bottom{
+        .w(100%);
+        overflow: hidden;
+        
+        a{
+            float: right;
+            .fc(@3,.3rem);
+        }
+        .a1{
+            .fc(@cr1);
+        }
+        .a2{
+            .mr(28);
+        }
+     }
+    
+}
+.model-show{
+    display: flex;
+ }
+// header
+
+//footer
+
+//按钮居中
+
+//布局间距（或者容器内标题）

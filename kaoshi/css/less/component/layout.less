@@ -1,0 +1,244 @@
+//定义外层容器(背景+内边距)，里面内容（居中+背景加内边距）
+.full-screen(@bc1:@e,@bc2:@f,@bor:@d){
+    .bg(@bc1);
+    .pd(20,0);
+    article{
+        .bg(@bc2);   
+        .bor(@d); 
+    }
+}
+/*
+<section class="full-screen">
+    <div class="center-block">
+        <acticle>
+        </acticle>
+    </div>
+</section>
+*/
+
+//头部固定
+.fiex-header(@height:120){
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    .h(@height);
+    &+section{
+        .mt(@height);
+    } 
+}
+/*
+<section class="fiex-header header">
+    <div class="header-top">
+    </div>
+    <div class="header-nav">
+    </div>
+</section>
+
+其他部分(这部分会有个margin)，比如轮播图 。。。
+*/
+
+//带有三角箭头的对话框(默认箭头在右)
+.say-tip(@w:200,@h:40,@bc:#ff5656,@direction:1){
+    @bw:5;
+    @rad:5;
+
+    .w(@w);
+    .h(@h);
+    //定义四个方向，上右下左
+    .mixin (@direction) when (@direction = 0) {  
+        .a1_t(@bc,@bw);
+        .t(-@bw);
+        .r(50%);
+        .m_r(-@bw);
+    }  
+    .mixin (@direction) when (@direction = 1) {  
+        .a1_r(@bc,@bw);
+        .r(-@bw);
+        .t(50%);
+        .mt(-@bw);
+    } 
+    .mixin (@direction) when (@direction = 2) {  
+        .a1_b(@bc,@bw);
+        .b(-@bw);
+        .r(50%);
+        .mr(-@bw);
+    } 
+    .mixin (@direction) when (@direction = 3) {  
+        .a1_l(@bc,@bw);
+        .l(-@bw);
+        .t(50%);
+        .mt(-@bw);
+    } 
+
+    position: relative;
+ 
+    .content {
+        .w(@w);
+        .h(@h);
+        .bg(@bc);
+        .rad(@rad);
+    }
+    &:after {
+        content: '';
+        position: absolute;
+        .mixin(@direction);
+    }
+}
+/*
+<div class="say-tip">
+     <div class="content">
+     </div>
+</div>
+
+.say-tip{
+    .say-tip();
+    .say-tip(@direction:1);
+    .say-tip(@direction:2);
+    .say-tip(@direction:3);
+}
+*/
+
+// 通用 item 排版 ,@w代表一行排几个，@h代表每个item高度,@m代表每个item右外边距
+.items(@w:4,@h:300,@m:2%,@mb:@m){
+    overflow: hidden;
+    &>div{
+        float: left;
+        .h(@h);
+        width:(100%-@m*((@w)-1))/@w;
+        .mb(@m); 
+        &:not(:nth-child(@{w}n)){
+            .mr(@m);
+        }
+    }
+}
+/*
+item class 可以不要
+需要下边距，自定义加,默认是不加
+<div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+*/
+
+// 通用文字前面线条
+.line-h(){   
+    &:before{
+        content: '';
+        .mr(20);
+        .define_line(@0,3,30);   
+    }
+
+}
+
+//导航悬浮动画出现下横线
+.header-nav (@color: red,@a-height:30) {
+    //只给一级导航加下划线，一级里面的二级导航不加下划线
+    &>ul>li>a{
+         //下划线
+        .li-line(@color);
+    }
+    ul {
+        .clear();
+    }
+    li {
+        float: left;
+        &:not(:last-child){
+            .mr(35);  
+        } 
+    } 
+    a {    
+        display: block;
+        position: relative; 
+        .fc(16); 
+        .mg(0,15);
+        .h(@a-height);
+    } 
+    .active { 
+        a{
+            .fc(@color);
+
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+    } 
+
+    //悬浮二级导航
+    .drop-down,
+    .drop-menu {
+        &:hover {
+            // 二级导航显示
+            .drop-menu {
+                display: block;
+            }
+        } 
+    } 
+    .drop-down {
+        position: relative; 
+        // 箭头
+        .li-arrow(@3,@color); 
+        &>a{
+            float: left;
+            .mr(3);
+        }
+    }
+    .drop-menu {
+        position: absolute;
+        z-index: 999; 
+        .l(0);
+        .t(100%);
+        .pt(10);
+        .pb(10);
+        .bg(@f);
+        display: none;
+        .shadow(@op_0);
+        li {
+            .mr(0);
+            float: none;
+            text-align: center;
+            display: block;
+            &:hover {
+                .bg(@color);
+                a {
+                    .fc(@f);
+                }
+            }
+        } 
+        a {
+            display: block;
+            line-height: ~"@{a-height}px";
+            white-space: nowrap;
+        }
+    }
+}
+/*
+<!-- 导航 -->
+<nav class="header-nav">
+    <ul>
+        <li class="active">
+            <a href="">首页</a>
+        </li>
+        <li>
+            <a href="">案例展示</a>
+        </li>
+        <li class="drop-down">
+            <a href="">二级</a>
+            <ul class="drop-menu">
+                <li>
+                    <a href="">二级下拉1</a>
+                </li>
+                <li>
+                    <a href="">二级下拉2</a>
+                </li>
+                <li>
+                    <a href="">二级下拉3</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="">关于我们</a>
+        </li>
+    </ul>
+</nav>
+*/

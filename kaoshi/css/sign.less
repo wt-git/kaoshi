@@ -1,0 +1,81 @@
+@import 'less/less';
+.sign-box {
+    .bg("paper-bg1.jpg");
+    .w(100vw);
+    // .h(100vh);
+    .logo {
+        .pd(90, 50);
+    }
+}
+//登录容器
+.sign {
+    .pd(0, 25);
+}
+//输入信息 
+.enter {
+    &:first-child{
+        .mb(35);
+    }
+    &>input {
+        .bg(transparent);
+        .w(100%);
+        .bor(0);
+        .placeholder(@cr2);
+        .fc(@f, .3rem);
+        .pd(8, 0);
+        border-bottom: @cr3 1px solid;
+    }
+}
+//记住密码
+.save {
+    .mt(12);
+    .mb(50);
+    overflow: hidden;
+    div {
+        i {
+            .fc(@cr4,.28rem);
+            &:nth-child(1) {
+                display: block;
+            }
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+        display: inline-block;
+    }
+    label{
+        float: right;
+    }
+    span {
+        .fc(@cr4,.28rem);
+        display: inline-block;
+    }
+    [type=checkbox] {
+        display: none;
+        &:checked+div {
+            i {
+                &:first-child {
+                    display: none;
+                }
+                &:last-child {
+                    display: block;
+                }
+            }
+        }
+    }
+
+}
+
+//提交表单
+.submit{
+    input{
+        // .bg(@cr5);
+        background: transparent;
+        .bor(@f);
+        text-align: center;
+        .w(100%);
+        .rad(40);
+        .fc(@f,.34rem);
+        .pd(9,0);
+    }
+}

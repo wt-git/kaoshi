@@ -1,0 +1,127 @@
+//兼容前缀
+.prefix(@name,@value){
+    -ms-@{name}: @value;
+    -moz-@{name}: @value;
+    -webkit-@{name}: @value;
+         @{name}: @value;
+}
+
+//清除浮动：子集，有定位时使用
+.clear(){
+    &:after{
+        content: '';
+        display: block;
+        visibility: hidden;
+        height: 0;
+        clear: both;
+    }
+}
+
+//媒体查询，需要完善,参数里面不能调用方法
+// .media(@rules){ 
+//     @media screen and (min-width:768px){  
+//         &{  
+//            @rules();
+//         }  
+//     } 
+// } 
+
+
+//Bs轮播图
+// 轮播,圆点按钮变更
+.carousel-indicators(){
+    .b(10);
+    li{
+        .bg(@f);
+        .bor(@f);
+        width: 14px;
+        height: 14px;
+        margin: 5px;
+    }
+    .active{
+        .bg(@dian);
+        .bor(@dian);
+        width: 14px;
+        height: 14px;
+        margin: 5px;
+    }
+}
+
+//BS后台使用的验证报错提示
+.bs-closes(){
+    overflow: hidden;
+    width: 100%;
+    span{
+        float: right;
+        width: 2%;
+        cursor: pointer;
+        .fc(16);
+    }
+    ul{
+        width:95%;
+        overflow: hidden;
+    }
+    li{
+        float: left;
+        width:100%;
+    }
+}
+/*
+<div class="alert alert-danger bs-closes" data-dismiss="alert">
+    <span aria-hidden="true">×</span>
+    <ul>
+        <li>3333</li>
+        <li>111111</li>
+        <li>111111</li>
+    </ul>
+</div>
+*/
+
+//php分页激活样式 和上面的激活等价
+.pages(@page_bg:'',@page_cr:''){
+    margin-bottom: 60px;
+    li{
+        a,span{
+            border-radius: 0; // 用于php分页间距调整
+            // margin-right: 10px;
+            .fc(@c-3); 
+        }
+        .current{
+            .bg(@page_bg);
+            .fc(@page_cr);
+        }
+    }
+
+}
+/*滚动条样式---webkit内核*/
+.scrollbar(@color) {
+    /*整个滚动条，高宽分别对应横竖滚动条的尺寸*/
+    &::-webkit-scrollbar {
+        .w(5);
+        .h(5); 
+    }
+    /*滚动条两端，上下按钮*/
+    &::-webkit-scrollbar-button {
+        .bg(rgb(46, 4, 27));
+    }
+    /*滚动条里面轨道,也就是可滑动区域*/
+    &::-webkit-scrollbar-track {
+        .bg(rgb(214, 199, 202));
+    }
+    /*滚动条里面小方块*/
+    &::-webkit-scrollbar-thumb {
+        .bg(black);
+    }
+    /* 内层轨道，滚动条中间部分（除去）*/
+    &::-webkit-scrollbar-track-piece {
+     
+    }
+    /*边角*/
+    &::-webkit-scrollbar-corner {
+        .bg(blue);
+    }
+    /*定义右下角拖动块的样式*/
+    &::-webkit-scrollbar-resizer {
+       
+    }
+}

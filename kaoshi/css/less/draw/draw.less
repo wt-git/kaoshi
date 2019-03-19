@@ -1,0 +1,95 @@
+@import "define";
+@import "line";
+@import "arrow";
+
+
+
+//导航上的下划线,悬浮出现下划线
+//放于li里的a中
+.li-line(@color:red){
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        .w(100%);
+        .h(3);
+        transform: scaleX(0);
+        .bg(@color);
+        .b(0);
+        transition: all .3s;
+    }
+    &:hover {
+        .fc(@color); 
+        &:after {
+            transform: scaleX(1);
+        }
+    }
+} 
+/*
+<nav>
+    <ul>
+        <li><a></a></li>
+        <li><a></a></li>
+        <li>
+            <a></a>
+            ul>li>a
+        </li>
+        <li><a></a></li>
+    </ul>
+</nav>
+
+.nav{
+    //子集查找目的是为了防止样式继承到二级菜单中
+    &>ul>li>a{
+        .li-line(@color);
+    }
+}
+*/
+
+//导航上的的三角箭头,悬浮后旋转,并且颜色改变(配合导航的激活状态颜色)
+//放于li里面的a中
+.li-arrow(@default:@9,@hover:@3) {
+    &:after {
+        content: '';
+        .a1_b(@default, 4);
+        transition: transform 0.3s;
+        .ml(5);
+        .mb(3);
+        // float: left;
+        // position: absolute;
+        // .r(-15);
+        // .t(10);
+    }
+    &:hover {
+        &>a {
+            .fc(@hover);
+            //这里是悬浮二级菜单时，一级菜单有下划线,当没下划线时使用这个也不影响
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+        &:after {
+            transform: rotate(180deg);
+            border-top-color: @hover;
+        }
+    }
+}
+/*
+<li class="drop-down">
+    <a href="">二级</a>
+    <ul class="drop-menu">
+        <li>
+            <a href="">二级下拉1</a>
+        </li>
+        <li>
+            <a href="">二级下拉2</a>
+        </li>
+        <li>
+            <a href="">二级下拉3</a>
+        </li>
+    </ul>
+</li>
+.drop-down {
+     .li-arrow(@3,@color);
+}
+*/

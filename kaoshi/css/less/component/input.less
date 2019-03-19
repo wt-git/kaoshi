@@ -1,0 +1,98 @@
+//改变placeholder颜色
+.placeholder(@color:red){
+
+    &::-webkit-input-placeholder { /* WebKit browsers */ 
+        color: @color; 
+        } 
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+        color: @color; 
+        } 
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+        color: @color; 
+        } 
+        &:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+        color: @color; 
+        } 
+}
+
+// 上传文件
+.files(){
+    overflow: hidden;
+    [type="file"] {
+        display: none;
+    } 
+    [type="text"] {
+        // .w(640);
+        .pd(0, 15);
+       
+        // &,& + label{
+        //     .bc(@f);
+        //     .bor(@9);
+        //     .h(50);
+        // }
+        &:focus{
+            outline: none;
+        }
+    }
+    //上传按钮点击
+    label{
+            cursor: pointer;
+            float: right;
+            text-align: center;
+            // .w(140);
+            // line-height: 50px;
+            // .cr(@9);
+    }
+}
+/*
+ <div class="files">
+    <input type="file" name="file" id="f3">
+    <input type="text" placeholder="请上传企业法人身份证复印件签名后的扫描件">
+    <label for="f3">上传</label>
+</div>
+
+//上传文件
+function fileClick() {
+    var $files = $(".files");
+    if ($files.lenght != 0) {
+        var $text = $files.find("[type=text]");
+        $text.prev().change(function () {
+            $(this).next().val($(this).val());
+        })
+        $text.click(function () {
+            $(this).prev().click();
+        });
+    }
+}
+*/
+
+
+//改变选中的样式，分单选和多选，通过type控制
+.checkeds(){
+    label {
+        cursor: pointer;
+        display: block;
+    }
+    input {
+        display: none;
+        &:checked+i {
+            //根据实际情况调整，如果是图片的话，这里直接更换图片
+            // .cr(@d);
+            //.bg(@src);
+        }
+    }
+}
+/*
+<div class="checked-icon">
+    <label for="wx">
+        <input type="radio" name="pay" id="wx" >
+        <i class="icon-gouxuan iconfont"></i>
+        <span>微信支付</span>
+    </label>
+    <label for="zfb">
+        <input type="radio" name="pay" id="zfb">
+        <i class="icon-gouxuan iconfont"></i>
+        <span>支付宝支付</span>
+    </label>
+</div>
+*/

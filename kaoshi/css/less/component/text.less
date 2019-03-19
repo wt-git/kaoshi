@@ -1,0 +1,22 @@
+//文本两端对齐（自动增加字间距）
+.text-justify(@num:0){
+    text-align:justify;
+    word-wrap:break-word;
+    // text-justify:inter-word;
+	letter-spacing: @num*1px; 
+}
+//隐藏多余文字，一行
+.one-col(){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+//隐藏多余文字，两行,仅支持webkit内核
+.two-col(){
+    overflow: hidden;
+	text-justify:inter-word;
+	word-wrap:break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

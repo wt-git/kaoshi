@@ -1,0 +1,102 @@
+@px: 1px;
+// 宽
+.w(@num) {
+    width: @num*@px;
+}
+//高
+.h(@num){
+    height: @num*@px;
+}
+
+//行高
+.lh(@num){
+    line-height:@num*@px;
+}
+
+//圆角
+.rad(@num){
+    border-radius: @num*@px;
+}
+
+//双边距
+.mg(@key1){
+    margin:@key1*@px;
+}
+.mg(@key1,@key2){ 
+    margin: @key1*@px @key2*@px;
+}
+.mg(@key1,@key2,@key3){ 
+    margin: @key1*@px @key2*@px @key3*@px;
+}
+.mg(@key1,@key2,@key3,@key4){ 
+    margin: @key1*@px @key2*@px @key3*@px @key4*@px;
+}
+.pd(@key1){
+    padding:@key1*@px;
+}
+.pd(@key1,@key2){ 
+    padding: @key1*@px @key2*@px;
+}
+.pd(@key1,@key2,@key3){ 
+    padding: @key1*@px @key2*@px @key3*@px;
+}
+.pd(@key1,@key2,@key3,@key4){ 
+    padding: @key1*@px @key2*@px @key3*@px @key4*@px;
+}
+
+// 定位距离，上右下左
+.t(@num){
+    top:@num*@px;
+}
+.r(@num){
+    right:@num*@px;
+}
+.b(@num){
+    bottom:@num*@px;
+}
+.l(@num){
+    left:@num*@px;
+}
+
+// 内边距,上右下左
+.pt(@num){
+    padding-top: @num*@px;
+}
+.pr(@num){
+    padding-right: @num*@px;
+}
+.pb(@num){
+    padding-bottom: @num*@px;
+}
+.pl(@num){
+    padding-left: @num*@px;
+}
+
+//外边距,上右下左
+.mt(@num){
+    margin-top: @num*@px; 
+}
+.mr(@num){
+    margin-right: @num*@px; 
+}
+.mb(@num){
+    margin-bottom: @num*@px; 
+}
+.ml(@num){
+    margin-left: @num*@px; 
+}
+
+//圆角，上左、上右、下右、下左
+.rtl(@num){
+    border-top-left-radius: @num*@px;
+}
+.rtr(@num){
+    border-top-right-radius: @num*@px;
+}
+.rbr(@num){
+    border-bottom-right-radius: @num*@px;
+}
+.rbl(@num){
+    border-bottom-left-radius: @num*@px;
+}
+

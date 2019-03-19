@@ -1,0 +1,42 @@
+ @import 'less/less';
+ .index-box{
+     overflow: hidden;
+ }
+ .ix-top{
+     position: relative;
+ }
+ .explain{
+     .bg("explain.png");
+     .w(.96rem);
+     .h(.90rem);
+     position: absolute; 
+     z-index:1;
+     .t(0); 
+     .r(35);
+ }
+ .ix-imgs{
+     .pd(20,20,0,20);
+     div{
+         .mb(8);
+     }
+ }
+ .model{
+    //  display: flex;
+     .pd(80,35);
+ 
+     .content{
+         height: calc(~'100vh - 160px');
+         overflow-y: scroll;
+         display: block;
+         .pd(.75rem);
+     }
+     h1{
+         text-align: center;
+         .fc(.48rem);
+         .mb(23);
+     }
+     p{
+         .mb(23);
+         .fc(@6,.3rem);
+     }
+ }

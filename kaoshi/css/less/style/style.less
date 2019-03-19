@@ -1,0 +1,62 @@
+@import "color";
+@import "image";
+@import "distance"; 
+
+//marige居中
+.mc(){
+    margin-left: auto;
+    margin-right: auto;
+}
+
+//字体大小or颜色+rem
+.fc(@style) when (iscolor(@style)) {
+    color: @style;
+}
+.fc(@style) when (isnumber(@style)) {
+    font-size: @style*@px;
+}
+.fc(@color,@font) when (iscolor(@color)){
+    color:@color;
+    font-size:@font*@px;
+}
+.fc(@color,@font) when (isnumber(@color)){
+    color:@font;
+    font-size:@color*@px;
+}
+
+
+// 背景图or背景颜色
+.bg(@src,@w,@h){
+    background: url("../img/@{src}") no-repeat;
+    .w(@w);
+    .h(@h);
+}
+.bg(@src) when (isstring(@src)) {
+    background: url("../img/@{src}") no-repeat;
+    background-position:center center;
+    background-size: cover;
+}
+.bg(@src) when (iscolor(@src)){
+    background: @src; 
+}
+//背景固定
+.bg_gd(){
+    background-attachment: fixed;
+    background-position: center 0%;
+    background-size: auto;
+}
+
+//边框
+.bor(@color)when (iscolor(@color)){
+    border: 1px solid @color;
+} 
+.bor(@color) when (isnumber(@color)) {
+    border-width: @color*@px;
+}
+.bor(@color,@num) when (iscolor(@color)){
+    border: @num*@px solid @color;
+}
+.bor(@color,@num) when (isnumber(@color)){
+    border: @color*@px solid @num;
+}
+
